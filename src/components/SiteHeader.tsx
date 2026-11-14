@@ -23,6 +23,12 @@ const SiteHeader = () => {
           >
             Archive
           </Link>
+          <Link
+            to="/mecha"
+            className={`transition-colors hover:text-foreground ${isActive('/mecha') ? 'text-foreground' : ''}`}
+          >
+            DX Mecha
+          </Link>
           <a href="#history" className="transition-colors hover:text-foreground">
             History
           </a>
@@ -48,6 +54,13 @@ const SiteHeader = () => {
             className="block text-sm font-medium uppercase tracking-widest text-foreground"
           >
             Archive
+          </Link>
+          <Link
+            to="/mecha"
+            onClick={() => setMobileOpen(false)}
+            className="block text-sm font-medium uppercase tracking-widest text-foreground"
+          >
+            DX Mecha
           </Link>
           <a
             href="#history"
