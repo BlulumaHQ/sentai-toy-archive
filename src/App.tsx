@@ -9,6 +9,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import SeasonDetail from "./pages/SeasonDetail";
+import Mecha from "./pages/Mecha";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/season/:id" element={<SeasonDetail />} />
+                <Route path="/mecha" element={<Mecha />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>

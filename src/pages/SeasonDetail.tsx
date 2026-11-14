@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { SEASONS } from '@/data/seasons';
+import { MECHA } from '@/data/mecha';
+import MechaCard from '@/components/MechaCard';
 import { useState } from 'react';
 
 const SeasonDetail = () => {
@@ -23,6 +25,7 @@ const SeasonDetail = () => {
   }
 
   const visibleToys = season.toys.slice(0, 12);
+  const seasonMecha = MECHA.filter((m) => m.seriesNo === season.number);
 
   return (
     <>
@@ -92,6 +95,18 @@ const SeasonDetail = () => {
 
             {/* Gallery */}
             <div className="lg:col-span-8">
+              {seasonMecha.length > 0 && (
+                <section className="mb-16">
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-8">
+                    DX Mecha
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12">
+                    {seasonMecha.map((m, i) => (
+                      <MechaCard key={m.id} mecha={m} index={i} showSeries={false} />
+                    ))}
+                  </div>
+                </section>
+              )}
               <h2 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-8">
                 Toy Collection
               </h2>
